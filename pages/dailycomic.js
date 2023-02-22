@@ -1,12 +1,15 @@
-// import { FetchComic } from "./api/comic.js";
+import Layout from "../components/layout";
 
 export default function Comic({ results }) {
   console.log(results);
   return (
-    <div>
-      <p>testing</p>
-      {results && results.comic?.map((comic) => <h2>{comic.title}</h2>)}
-    </div>
+    <Layout>
+      <p>
+        {results.day}.{results.month}.{results.year}
+      </p>
+      <h2>{results.title}</h2>
+      <img src={results.img} alt={results.alt} />
+    </Layout>
   );
 }
 

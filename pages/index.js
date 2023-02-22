@@ -4,6 +4,7 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import Comic, { results } from "./dailycomic";
 
 {
   /* Here I am fetching data from the files system (lib folder), and 
@@ -18,7 +19,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData, results }) {
   return (
     <Layout home>
       <Head>
@@ -30,6 +31,10 @@ export default function Home({ allPostsData }) {
           (To make it I used{" "}
           <a href="https://nextjs.org/learn">this Next.js tutorial</a>.)
         </p>
+      </section>
+      <section className={utilStyles.headingMd}>
+        <h2 className={utilStyles.headingLg}>Comic</h2>
+        <Link href={`/dailycomic`}>The daily comic</Link>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
